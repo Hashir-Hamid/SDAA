@@ -1,0 +1,106 @@
+Restaurant Management System
+Fully Dressed Usecase 
+Use Case: Login
+Use Case ID: UC1
+Actors: Admin, Employee
+Description: Allows both Admin and Employee to log into the system.
+Preconditions:
+The user must be registered in the system.
+The user has login credentials (username and password).
+Postconditions:
+User is authenticated and granted access to the system functions based on their role (Admin or Employee).
+Main Flow:
+1.The user selects "Login" on the main interface.
+2.The system prompts the user to enter a username and password.
+3.The user enters their credentials and submits the form.
+4.The system authenticates the credentials.
+5.If the credentials are valid, the user is directed to the main dashboard.
+Alternate Flow:
+If the credentials are invalid, the system displays an error message, and the user is prompted to re-enter the correct credentials.
+
+Use Case: Order
+Use Case ID: UC2
+Actors: Admin, Employee
+Description: Allows Admin or Employee to create, view, and manage orders in the system.
+Preconditions:
+The user must be logged in.
+Required products or services must be available in the inventory.
+Postconditions:
+An order is created, saved in the system, and ready for processing or billing.
+Main Flow:
+1.The user selects "Order" from the dashboard.
+2.The system displays available products or services.
+3.The user selects items to include in the order.
+4.The user enters customer information and order details.
+5.The user confirms and submits the order.
+6.The system saves the order and generates an order ID.
+Alternate Flow:
+If an item is out of stock, the system notifies the user, and they can modify the order.
+
+Use Case: Bill Generation
+Use Case ID: UC3
+Actors: Admin, Employee
+Description: Allows Admin or Employee to generate bills for completed orders.
+Preconditions:
+An order must be completed and ready for billing.
+Postconditions:
+A bill is generated, stored, and a copy is provided to the customer.
+Main Flow:
+1.The user selects "Bill Generation" from the dashboard.
+2.The system displays a list of completed orders awaiting billing.
+3.The user selects an order to generate the bill.
+4.The system calculates the total amount, taxes, and other fees.
+5.The system generates a bill and provides a copy to the user for printing or saving.
+Alternate Flow:
+If there is an issue with order details, the system displays an error message and allows the user to review the order.
+
+Use Case: Add Employee
+Use Case ID: UC4
+Actors: Admin
+Description: Allows the Admin to add a new employee to the system.
+Preconditions:
+The Admin must be logged in.
+Postconditions:
+A new employee account is created and can be used to log into the system.
+Main Flow:
+1.The Admin selects "Add Employee" from the dashboard.
+2.The system displays a form for entering employee details (e.g., name, contact info, role).
+3.The Admin fills out the form and submits it.
+4.The system creates an employee account and stores the information.
+5.The system notifies the Admin of the successful creation of the employee account.
+Alternate Flow:
+If any required information is missing, the system displays an error message and prompts the Admin to complete the form.
+
+Use Case: Sales
+Use Case ID: UC5
+Actors: Admin, Employee
+Description: Allows the Admin or Employee to manage and view sales information.
+Preconditions:
+The user must be logged in.
+There must be completed transactions or orders to view in the sales history.
+Postconditions:
+Sales data is displayed, and users can analyze or export data if needed.
+Main Flow:
+1.The user selects "Sales" from the dashboard.
+2.The system retrieves and displays sales data, including transactions, order history, and revenue.
+3.The user can filter or search the data based on date, product, or customer.
+4.The user can export the data to a file if needed.
+Alternate Flow:
+If no sales data is available, the system displays a message indicating this.
+
+Use Case: Report
+Use Case ID: UC6
+Actors: Admin, Employee
+Description: Allows Admin or Employee to generate reports based on sales, orders, or employee performance.
+Preconditions:
+The user must be logged in.
+Postconditions:
+The requested report is generated and can be viewed or downloaded.
+Main Flow:
+1.The user selects "Report" from the dashboard.
+2.The system prompts the user to select the type of report (e.g., sales, order summary, employee performance).
+3.The user selects criteria and date ranges for the report.
+4.The system generates the report based on the selected parameters.
+5.The report is displayed, and the user can download or print it.
+Alternate Flow:
+If no data matches the selected criteria, the system displays a message saying "No data available for the selected parameters."
