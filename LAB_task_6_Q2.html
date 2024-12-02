@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Horizontal Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row; /* Arrange items horizontally */
+            justify-content: space-between; /* Space evenly between items */
+            align-items: center; /* Align items vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        .header, .main, .footer {
+            flex: 1; /* Distribute equal space to each section */
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .header {
+            background-color: #4CAF50;
+        }
+
+        .main {
+            background-color: #2196F3;
+        }
+
+        .footer {
+            background-color: #FF5722;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="main">Main Content</div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>

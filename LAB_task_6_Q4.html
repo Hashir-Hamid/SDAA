@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    form {
+      width: 300px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+    input[type="submit"] {
+      width: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<form name="myForm" onsubmit="return validate()">
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email">
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+
+  <label>Gender:</label>
+  <input type="radio" id="male" name="gender" value="Male">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" value="Female">
+  <label for="female">Female</label>
+
+  <label for="country">Country:</label>
+  <select id="country" name="country">
+    <option value="--SELECT--">--SELECT--</option>
+    <option value="Country1">Country1</option>
+    <option value="Country2">Country2</option>
+  </select>
+
+  <label>Subjects:</label>
+  <br>
+  <input type="checkbox" id="phy" name="subjects" value="Phy">
+  <label for="phy">Phy</label>
+  <input type="checkbox" id="chem" name="subjects" value="Chem">
+  <label for="chem">Chem</label>
+  <input type="checkbox" id="bio" name="subjects" value="Bio">
+  <label for="bio">Bio</label>
+
+  <label for="address">Address:</label>
+  <textarea id="address" name="address"></textarea>
+
+  <input type="submit" value="Save">
+</form>
+
+<script>
+function validate() {
+  // Get form values
+  var email = document.forms["myForm"]["email"].value;
+  var name = document.forms["myForm"]["name"].value;
+  var gender = document.forms["myForm"]["gender"].value;
+  var country = document.forms["myForm"]["country"].value;
+  var subjects = document.forms["myForm"]["subjects"];
+  var address = document.forms["myForm"]["address"].value;
+
+  // Check if email is entered and correct
+  if (email == "" || !email.includes("@")) {
+    alert("Please enter a valid email.");
+    return false;
+  }
+
+  // Check if name is entered
+  if (name == "") {
+    alert("Please enter your name.");
+    return false;
+  }
+
+  // Check if one option for gender is selected
+  if (!(gender == "Male" || gender == "Female")) {
+    alert("Please select your gender.");
+    return false;
+  }
+
+  // Check if country is selected from the dropdown
+  if (country == "--SELECT--") {
+    alert("Please select your country.");
+    return false;
+  }
+
+  // Check at least two options for checkboxes are selected
+  var checkedSubjects = [];
+  for (var i = 0; i < subjects.length; i++) {
+    if (subjects[i].checked) {
+      checkedSubjects.push(subjects[i].value);
+    }
+  }
+
+  if (checkedSubjects.length < 2) {
+    alert("Please select at least two subjects.");
+    return false;
+  }
+
+  // Check description is entered in address field
+  if (address.trim() == "") {
+    alert("Please enter your address in the description field.");
+    return false;
+  }
+
+  // If all checks pass
+  return true;
+}
+</script>
+
+</body>
+</html>

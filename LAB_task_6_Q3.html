@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start-Stop Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button-container {
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .image-text {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+        }
+        input {
+            font-size: 16px;
+            padding: 5px;
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Start-Stop Timer</h1>
+    <div class="button-container">
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+    </div>
+    <div class="image-text">
+        <img id="image" src="green.jpg" alt="Green Circle">
+        <input id="text" type="text" value="RED" readonly>
+    </div>
+
+    <script>
+        let timer; // Variable to store the timer ID
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+        const image = document.getElementById("image");
+        const text = document.getElementById("text");
+
+        // Start button functionality
+        startButton.addEventListener("click", () => {
+            // Prevent multiple timers from running
+            clearTimeout(timer);
+
+            // Start a 5-second timer
+            timer = setTimeout(() => {
+                // After 5 seconds, change the image and text
+                image.src = "red.png";
+                image.alt = "Red Circle";
+                text.value = "GREEN";
+            }, 5000);
+        });
+
+        // Stop button functionality
+        stopButton.addEventListener("click", () => {
+            // Clear the timer to stop the changes
+            clearTimeout(timer);
+        });
+    </script>
+</body>
+</html>
